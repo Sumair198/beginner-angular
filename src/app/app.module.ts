@@ -35,7 +35,7 @@ import { CountrycodePipe } from './countrycode.pipe';
     AppRoutingModule,
     UsersModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

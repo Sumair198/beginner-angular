@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild, ElementRef } from '@angular/core';
 import { UserService } from './user.service'
 
 @Component({
@@ -7,13 +7,16 @@ import { UserService } from './user.service'
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  @ViewChild("headingone") headingone?  : ElementRef
   title = 'beginner';
-  constructor(public user : UserService) {
 
+  constructor(public user : UserService) {
+    console.log("constructor")
   }
 userData  : any = ''
   ngOnInit()
   {
+    console.log("ngOnInit")
     // console.log(this.user.getData())
     // this.userData = this.user.getData()
     this.user.getData().subscribe((res :any)=>
@@ -21,6 +24,11 @@ userData  : any = ''
       console.log(res.todos)
       this.userData = res.todos
     })
+  }
+  ngAfterViewInit()
+  {
+    console.log("ngAfterViewInit" , this.headingone!.nativeElement.textContent)
+    // this.headingone!.nativeElement.style.color = 'red'
   }
   // name = 'Sumair ul haq'
 

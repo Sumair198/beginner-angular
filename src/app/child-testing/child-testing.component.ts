@@ -18,6 +18,10 @@ export class ChildTestingComponent {
   @Input({transform:numberAttribute}) salary! : number
   @Output() myData = new EventEmitter()
 
+  ngOnChanges()
+  {
+    console.log("ngOnChanges")
+  }
   obj = {
     text : "Hello from child",
     currentDateAndTime : new Date()
